@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mmodi.countries.viewmodel.CountryDetailsVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:context=".view.CountryDetailsActivity">
+
+        <ImageView
+            android:id="@+id/iv_flag"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{viewModel.flag}"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/lbl_capital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="Capital : "
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_flag" />
+
+        <TextView
+            android:id="@+id/tv_capital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="@{viewModel.capital}"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintStart_toEndOf="@id/lbl_capital"
+            app:layout_constraintTop_toTopOf="@id/lbl_capital" />
+
+        <TextView
+            android:id="@+id/lbl_population"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="Population : "
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lbl_capital" />
+
+        <TextView
+            android:id="@+id/tv_population"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:text="@{viewModel.population}"
+            android:textSize="@dimen/_16ssp"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintStart_toEndOf="@id/lbl_population"
+            app:layout_constraintTop_toTopOf="@id/lbl_population" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
